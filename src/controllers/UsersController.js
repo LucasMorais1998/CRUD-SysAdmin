@@ -6,6 +6,10 @@ class UsersController {
     try {
       const users = await User.find();
 
+      if (users < 1) {
+        return res.status(200).json({ message: `There are no registered users.` });
+      }
+
       return res.json(users);
 
     } catch (err) {

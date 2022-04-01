@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import auth from './middlewares/auth';
+
 import TesteController from './controllers/TesteController';
 import UsersController from './controllers/UsersController';
 import RepositoriesController from './controllers/RepositoriesController';
@@ -8,7 +10,7 @@ const routes = new Router();
 
 routes.get('/hello', TesteController.index);
 
-
+routes.use(auth);
 
 routes.get('/users', UsersController.index);
 routes.get('/users/:id', UsersController.show);

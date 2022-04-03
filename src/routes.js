@@ -10,7 +10,6 @@ import RepositoriesController from './controllers/RepositoriesController';
 const routes = new Router();
 
 routes.post('/sessions', SessionsController.create);
-routes.get('/hello', TesteController.index);
 
 routes.use(auth);
 

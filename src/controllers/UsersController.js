@@ -1,5 +1,6 @@
-import User from '../models/User';
 import { createPasswordHash } from '../services/auth';
+
+import User from '../models/User';
 
 class UsersController {
   async index(req, res) {

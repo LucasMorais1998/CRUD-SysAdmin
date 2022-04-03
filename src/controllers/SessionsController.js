@@ -1,19 +1,17 @@
 import jwt from 'jsonwebtoken';
-
-import User from '../models/User';
+import authConfig from '../config/auth';
 import { checkPassword } from '../services/auth';
 
-import authConfig from '../config/auth';
+import User from '../models/User';
 
 class SessionsController {
   async create(req, res) {
     const { email, password } = req.body;
-    console.log(req.body)
 
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(401).json({ error: 'User / password invalid.A' });
+      return res.status(401).json({ error: 'User / password invalid.' });
     }
 
     if (!checkPassword(user, password)) {
